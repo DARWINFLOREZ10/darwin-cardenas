@@ -19,7 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   };
 }
 
-const labels: Record<Locale, { print: string; other: string; otherHref: string; summary: string; experience: string; systems: string; skills: string; focus: string }> = {
+const labels: Record<
+  Locale,
+  { print: string; other: string; otherHref: string; summary: string; experience: string; systems: string; skills: string }
+> = {
   en: {
     print: "Print / Save PDF",
     other: "Versión en español",
@@ -28,7 +31,6 @@ const labels: Record<Locale, { print: string; other: string; otherHref: string; 
     experience: "Experience",
     systems: "Selected systems",
     skills: "Skills",
-    focus: "Focus",
   },
   es: {
     print: "Imprimir / Guardar PDF",
@@ -38,7 +40,6 @@ const labels: Record<Locale, { print: string; other: string; otherHref: string; 
     experience: "Experiencia",
     systems: "Sistemas seleccionados",
     skills: "Habilidades",
-    focus: "Enfoque",
   },
 };
 
@@ -49,11 +50,12 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
   const { identity, experience, projects, skills } = cv;
   const localized = cv[locale];
   const end = (job: (typeof experience)[number]) => (locale === "es" ? job.endEs : job.end);
+  const site = identity.portfolioUrl.replace(/^https?:\/\//, "");
 
   return (
     <article className="resume-sheet">
-      <div className="mx-auto max-w-3xl px-6 py-10">
-        <div className="no-print mb-8 flex flex-wrap items-center justify-between gap-3 text-sm">
+      <div className="resume-page">
+        <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-3 text-sm">
           <Link href="/">Portfolio</Link>
           <div className="flex gap-3">
             <Link href={copy.otherHref}>{copy.other}</Link>
@@ -61,56 +63,59 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
           </div>
         </div>
 
-        <header className="border-b border-black/15 pb-5">
-          <h1 className="font-serif text-4xl tracking-tight">{identity.name}</h1>
-          <p className="mt-1 text-lg">{identity.title}</p>
-          <p className="mt-3 text-sm leading-6">
-            {identity.location} · {identity.workMode} · {identity.level}
-            <br />
-            <a href={`mailto:${identity.email}`}>{identity.email}</a>
-            {" · "}
-            <a href={identity.github}>github.com/{identity.githubHandle}</a>
-            {" · "}
-            <a href={identity.linkedin}>LinkedIn</a>
-            {identity.portfolioUrl ? (
+        <header className="border-b border-black/20 pb-3">
+          <h1 className="font-serif text-[1.6rem] leading-tight tracking-tight">{identity.name}</h1>
+          <p className="mt-1 text-base">{identity.title}</p>
+          <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-1 text-[0.8rem] leading-5">
+            <span>{identity.location}</span>
+            <span aria-hidden="true">·</span>
+            <a className="whitespace-nowrap" href={`mailto:${identity.email}`}>
+              {identity.email}
+            </a>
+            <span aria-hidden="true">·</span>
+            <a className="whitespace-nowrap" href={identity.github}>
+              github.com/{identity.githubHandle}
+            </a>
+            <span aria-hidden="true">·</span>
+            <a className="whitespace-nowrap" href={identity.linkedin}>
+              LinkedIn
+            </a>
+            {site ? (
               <>
-                {" · "}
-                <a href={identity.portfolioUrl}>{identity.portfolioUrl.replace(/^https?:\/\//, "")}</a>
+                <span aria-hidden="true">·</span>
+                <a className="whitespace-nowrap" href={identity.portfolioUrl}>
+                  {site}
+                </a>
               </>
             ) : null}
           </p>
         </header>
 
-        <section className="mt-6">
-          <h2 className="text-xs tracking-[0.16em] uppercase">{copy.summary}</h2>
-          <p className="mt-2 text-sm leading-6">{localized.summary}</p>
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.summary}
+          </h2>
+          <p className="mt-2 text-[0.84rem] leading-5">{localized.summary}</p>
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xs tracking-[0.16em] uppercase">{copy.focus}</h2>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6">
-            {localized.focus.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-6">
-          <h2 className="text-xs tracking-[0.16em] uppercase">{copy.experience}</h2>
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.experience}
+          </h2>
           {experience.map((job) => (
-            <div key={job.org} className="mt-3">
-              <div className="flex flex-wrap justify-between gap-2 text-sm">
+            <div key={job.org} className="resume-block mt-3">
+              <div className="flex items-baseline justify-between gap-4 text-[0.84rem]">
                 <p className="font-medium">
                   {locale === "es" ? job.roleEs : job.role}
                   {" · "}
                   {locale === "es" ? job.orgEs : job.org}
                 </p>
-                <p>
+                <p className="shrink-0">
                   {job.start} — {end(job)}
                 </p>
               </div>
-              <p className="text-sm">{job.location}</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6">
+              <p className="text-[0.78rem]">{job.location}</p>
+              <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[0.84rem] leading-5">
                 {(locale === "es" ? job.bulletsEs : job.bullets).map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
@@ -119,26 +124,29 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
           ))}
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xs tracking-[0.16em] uppercase">{copy.systems}</h2>
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.systems}
+          </h2>
           {projects.map((project) => {
             const text = project[locale];
             return (
-              <div key={project.name} className="mt-3">
-                <p className="text-sm font-medium">
+              <div key={project.name} className="resume-block mt-3">
+                <p className="text-[0.84rem] font-medium">
                   <a href={project.repo}>{project.name}</a>
                   <span className="font-normal"> · {project.stack}</span>
                 </p>
-                <p className="mt-1 text-sm leading-6">{text.problem}</p>
-                <p className="mt-1 text-sm leading-6">{text.design}</p>
+                <p className="mt-0.5 text-[0.84rem] leading-5">{text.problem}</p>
               </div>
             );
           })}
         </section>
 
-        <section className="mt-6">
-          <h2 className="text-xs tracking-[0.16em] uppercase">{copy.skills}</h2>
-          <p className="mt-2 text-sm leading-6">{skills.join(" · ")}</p>
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.skills}
+          </h2>
+          <p className="mt-2 text-[0.84rem] leading-5">{skills.join(" · ")}</p>
         </section>
       </div>
     </article>

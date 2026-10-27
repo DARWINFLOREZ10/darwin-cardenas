@@ -34,20 +34,41 @@ body {
 }
 
 .resume-sheet {
-  background: var(--color-sheet);
-  color: var(--color-ink-dark);
+  background: var(--color-paper);
   min-height: 100vh;
+  padding: 1.5rem 1rem 2.5rem;
 }
 
-.resume-sheet a {
+.resume-page {
+  width: min(8.5in, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1.15rem 2rem;
+  background: #fff;
+  color: #1c1b17;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.resume-page a {
   color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.resume-block {
+  break-inside: avoid;
+}
+
+@media (min-width: 900px) {
+  .resume-page {
+    min-height: 11in;
+    padding: 0.7in 0.75in;
+  }
 }
 
 @media print {
   body,
   .resume-sheet {
     background: white !important;
-    color: black !important;
   }
 
   .no-print {
@@ -56,5 +77,23 @@ body {
 
   .resume-sheet {
     min-height: auto;
+    padding: 0;
   }
+
+  .resume-page {
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .resume-page a {
+    text-decoration: none;
+  }
+}
+
+@page {
+  size: letter;
+  margin: 0.6in;
 }
