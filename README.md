@@ -1,14 +1,16 @@
 # Darwin Cardenas
 
-Portfolio, printable resumes, and a private apply workspace for Darwin Cardenas Florez. Backend-heavy software engineer, Medellín. Mid-level. The public title is not Senior.
+This is my portfolio. I built the page, the printable resumes, and Command, the private workspace I use when I apply.
 
-The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.json). `identity.portfolioUrl` stays empty until the Vercel URL exists.
+I am a backend-heavy software engineer in Medellín. I am mid-level. I do not put Senior on the title.
+
+The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.json). The live site is [darwin-cardenas.vercel.app](https://darwin-cardenas.vercel.app).
 
 ## Routes
 
-- `/` — portfolio. GitHub links only. No empty live demo.
-- `/resume/en` and `/resume/es` — ATS resumes. Use the browser print dialog for the PDF.
-- `/command` — my private workspace for Wellfound (where I apply) and LinkedIn (discovery). Password: `CAREER_KIT_PASSWORD`, default `darwin-kit` from [`.env.local.example`](.env.local.example).
+- `/` — the portfolio. GitHub links only. I do not link an empty live demo.
+- `/resume/en` and `/resume/es` — the resumes I print from the browser dialog.
+- `/command` — where I prepare a Wellfound application (that is where I apply) and the LinkedIn text (discovery). Password: `CAREER_KIT_PASSWORD`, default `darwin-kit` from [`.env.local.example`](.env.local.example).
 
 ## Run
 
@@ -22,8 +24,8 @@ Open `http://127.0.0.1:43127`.
 
 ## Public systems
 
-- [RelayOps](https://github.com/DARWINFLOREZ10/relayops)
+- [Alertfold](https://github.com/DARWINFLOREZ10/relayops)
 - [ReleasePilot](https://github.com/DARWINFLOREZ10/releasepilot)
-- [FlowForge](https://github.com/DARWINFLOREZ10/flowforge-platform)
+- [Handoff](https://github.com/DARWINFLOREZ10/flowforge-platform)
 
-Client work and CESDE systems are not in these repositories.
+I do not put client work or CESDE systems in these repositories.
