@@ -9,7 +9,7 @@ export default function HomePage() {
       <header className="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
         <div>
           <p className="text-xs tracking-[0.22em] text-accent uppercase">
-            {identity.level} · {identity.location} · {identity.workMode}
+            {identity.location} · {identity.workMode}
           </p>
           <h1 className="mt-3 font-serif text-4xl tracking-tight sm:text-6xl">{identity.name}</h1>
           <p className="mt-2 text-lg text-muted">{identity.title}</p>
