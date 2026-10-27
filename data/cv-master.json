@@ -1,0 +1,156 @@
+{
+  "identity": {
+    "name": "Darwin Cardenas Florez",
+    "title": "Backend / Full-Stack Software Engineer",
+    "level": "Mid-level",
+    "location": "Medellín, Colombia",
+    "workMode": "Remote",
+    "email": "darwinflorezcardenas@gmail.com",
+    "github": "https://github.com/DARWINFLOREZ10",
+    "githubHandle": "DARWINFLOREZ10",
+    "linkedin": "https://www.linkedin.com/in/darwin-cardenas-florez-8a921a374/",
+    "portfolioUrl": "",
+    "portfolioRepo": "https://github.com/DARWINFLOREZ10/darwin-cardenas",
+    "primaryChannel": "Wellfound",
+    "discoveryChannel": "LinkedIn"
+  },
+  "skills": [
+    "Python",
+    "FastAPI",
+    "TypeScript",
+    "Node.js",
+    "Next.js",
+    "PostgreSQL",
+    "SQLite",
+    "Redis",
+    "Celery",
+    "Docker"
+  ],
+  "experience": [
+    {
+      "role": "Software Engineer",
+      "roleEs": "Ingeniero de software",
+      "org": "Independent client work and CESDE",
+      "orgEs": "Clientes independientes y CESDE",
+      "location": "Medellín, Colombia",
+      "start": "2022",
+      "end": "Present",
+      "endEs": "Actualidad",
+      "bullets": [
+        "Deliver software for paying clients. Most of that work is APIs, relational data, and background processing.",
+        "Contribute to institutional systems at CESDE.",
+        "Keep client and institutional systems out of the public repositories. The repositories below are separate demonstrations."
+      ],
+      "bulletsEs": [
+        "Entrego software para clientes que pagan. La mayor parte son APIs, datos relacionales y procesamiento en segundo plano.",
+        "Contribuyo a sistemas institucionales en CESDE.",
+        "Los sistemas de clientes y los institucionales no están en los repositorios públicos. Esos repositorios son demostraciones aparte."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "RelayOps",
+      "repo": "https://github.com/DARWINFLOREZ10/relayops",
+      "stack": "Python, FastAPI, SQLite, Docker",
+      "en": {
+        "problem": "Incident intake when the same alert arrives twice, a storm should share one open incident, and a notification cannot depend on the request staying up.",
+        "design": "Per-tenant HMAC, hashed API tokens with roles, optimistic version checks, and a transactional outbox. Dead letters can be requeued by an admin. SQLite is a deliberate single-host limit.",
+        "evidence": "Integration tests for dedupe, tenant isolation, HTTP 409, the 64 KiB body cap, outbox retry, and dead-letter requeue. Two ADRs for the outbox and tenant boundary, one for the SQLite limit."
+      },
+      "es": {
+        "problem": "Recepción de incidentes cuando la misma alerta llega dos veces, una ráfaga debe compartir un incidente abierto, y la notificación no puede depender de que el request siga vivo.",
+        "design": "HMAC por tenant, tokens con hash y roles, versiones optimistas, y un outbox transaccional. Un admin puede reencolar un dead letter. SQLite es un límite deliberado de un solo host.",
+        "evidence": "Tests de integración para deduplicación, aislamiento de tenant, HTTP 409, tope de 64 KiB, reintento del outbox y reencolado. ADRs del outbox, del límite de tenant y de SQLite."
+      },
+      "talk": "RelayOps accepts a signed alert and either attaches it to the open incident or opens one. The notification row commits in that same transaction. A worker retries delivery and, after five failures, marks the message dead. An admin can requeue it. Two responders updating the same version get a 409, not a silent overwrite. I would move it to Postgres before running more than one API process."
+    },
+    {
+      "name": "ReleasePilot",
+      "repo": "https://github.com/DARWINFLOREZ10/releasepilot",
+      "stack": "Next.js, TypeScript, SQLite",
+      "en": {
+        "problem": "A feature flag that is only a boolean does not give a team a stable cohort, an emergency off switch, or a record of who overwrote whom.",
+        "design": "SHA-256 maps a subject into 10,000 buckets. Raising the rollout keeps subjects already included. enabled=false wins over the percentage. The flag update and its audit row share one transaction, and a stale version returns 409.",
+        "evidence": "Tests for cohort monotonicity, the kill switch, route handlers, and the version conflict. ADRs for bucketing and for the optimistic audit."
+      },
+      "es": {
+        "problem": "Un feature flag que solo es un booleano no da una cohorte estable, un apagado de emergencia, ni un registro de quién pisó a quién.",
+        "design": "SHA-256 ubica al sujeto en 10.000 buckets. Subir el rollout conserva a quien ya entró. enabled=false gana sobre el porcentaje. El cambio y su fila de auditoría van en una transacción, y una versión vieja responde 409.",
+        "evidence": "Tests de monotonía de la cohorte, del kill switch, de los handlers y del conflicto de versión. ADRs del bucketing y de la auditoría optimista."
+      },
+      "talk": "ReleasePilot does not look up a subject in a table to decide a rollout. The bucket is a hash of salt, flag key, and subject. Moving from 25% to 40% keeps the people already inside, because their bucket does not move. Turning the flag off returns false even at 100%. If two operators save the same version, the second gets 409 and the audit still shows the first write. It is one SQLite file and one admin key. That is the limit, not a hosted flag service."
+    },
+    {
+      "name": "FlowForge",
+      "repo": "https://github.com/DARWINFLOREZ10/flowforge-platform",
+      "stack": "Python, FastAPI, PostgreSQL, Redis, Celery",
+      "en": {
+        "problem": "A workflow step that runs inside the request dies when the client disconnects, and a tenant header without a membership check is not tenancy.",
+        "design": "Every tenant route requires a membership row. Starting a run inserts the run and its job in one commit, then a worker POSTs the step with an Idempotency-Key. Failures stay queued until the attempt budget is spent. One HTTP step, one worker process.",
+        "evidence": "Integration tests: a non-member receives 403, the run and the job share one commit, a failed POST retries, and a later success is not sent twice."
+      },
+      "es": {
+        "problem": "Un paso de workflow dentro del request muere si el cliente se desconecta, y un header de tenant sin fila de membresía no es tenancy.",
+        "design": "Toda ruta con tenant exige una membresía. Al iniciar un run, el run y su job entran en el mismo commit. Un worker hace el POST con Idempotency-Key. El fallo sigue en cola hasta agotar los intentos. Un solo paso HTTP y un solo proceso worker.",
+        "evidence": "Tests de integración: un no miembro recibe 403, el run y el job comparten un commit, un POST fallido reintenta, y un éxito posterior no se envía dos veces."
+      },
+      "talk": "FlowForge used to be a wide scaffold. I cut it down to one loop I can defend. Creating a run writes the run and the job together, so there is no run without work to do. The request returns while the step is still queued. The worker sends one HTTP call and the receiver can dedupe on the job id. If you are not a member of the organization, the route is 403 even if you know the tenant id. I do not claim Google OAuth, reports, or API keys. Those paths are gone."
+    }
+  ],
+  "en": {
+    "summary": "Backend-heavy software engineer in Medellín. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE. I am looking for international remote roles. The public proof I want read is three repositories, not a list of tools. I do not describe those repositories as production systems.",
+    "statement": "I care about the write that happens twice, the update that loses a race, and the job that still has to finish after the response is gone.",
+    "focus": [
+      "API contracts, authorization, and tenant predicates on the query.",
+      "One transaction for the state and the work that must follow it.",
+      "A written limit for what the system does not do."
+    ],
+    "howIWork": [
+      {
+        "title": "Name the failure first",
+        "body": "Duplicates, conflicting writers, and a down dependency are the requirements. The happy path is the easy part."
+      },
+      {
+        "title": "Put the boundary in the schema",
+        "body": "Uniqueness, version columns, and a row that commits with the state it belongs to. A comment that says 'be careful' is not a boundary."
+      },
+      {
+        "title": "Leave the request",
+        "body": "If the effect can fail after I have already answered, it is a job with a retry and an idempotency key, not more code in the handler."
+      },
+      {
+        "title": "Say the limit",
+        "body": "SQLite on one host, one admin key, one HTTP step. I would rather document that than borrow the shape of a platform I did not finish."
+      }
+    ],
+    "command": {
+      "checklist": [
+        "Read the Limits section of the repo before I describe it.",
+        "Lead with the failure mode, then the mechanism, then the test that proves it.",
+        "Apply on Wellfound first. LinkedIn is how people find me, not where I run the search.",
+        "Keep the headline at Backend / Full-Stack Software Engineer. Do not write Senior.",
+        "Do not add a metric, a team size, or a production claim I cannot point at."
+      ],
+      "wellfoundHeadline": "Backend / Full-Stack Software Engineer · APIs, consistency, async work",
+      "wellfoundAbout": "I am a backend-heavy software engineer in Medellín, open to international remote roles. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE.\n\nI want the work judged from three public systems:\n\nRelayOps — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nFlowForge — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nStack: Python, FastAPI, TypeScript, PostgreSQL, Redis, Docker. Next.js for this site.",
+      "linkedinHeadline": "Backend / Full-Stack Software Engineer · Python, TypeScript, APIs",
+      "linkedinAbout": "Backend-heavy software engineer in Medellín. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE. I am open to international remote roles.\n\nSelected public systems: RelayOps, ReleasePilot, and FlowForge on GitHub (DARWINFLOREZ10). Each README states the problem, the design, and the limit. I apply primarily on Wellfound.",
+      "doNotSay": [
+        "Senior in the headline or in the years-of-experience line.",
+        "Any number for latency, uptime, revenue, or team size.",
+        "That RelayOps, ReleasePilot, or FlowForge have production users.",
+        "A client or employer I have not already named. The named record is client work since 2022 and CESDE.",
+        "We, when I mean I."
+      ]
+    }
+  },
+  "es": {
+    "summary": "Ingeniero de software con peso en backend, en Medellín. Desde 2022 entrego software para clientes que pagan y contribuyo a sistemas institucionales en CESDE. Busco roles internacionales, incluidos remotos. La prueba pública que quiero que se lea son tres repositorios, no una lista de herramientas. No los presento como sistemas de producción.",
+    "focus": [
+      "Contratos de API, autorización y predicados de tenant en la consulta.",
+      "Una transacción para el estado y el trabajo que tiene que seguirlo.",
+      "Un límite escrito de lo que el sistema no hace."
+    ]
+  }
+}
