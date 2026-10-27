@@ -23,14 +23,15 @@ export default async function CommandPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <p className="text-xs tracking-[0.22em] text-accent uppercase">My private workspace</p>
+      <p className="text-xs tracking-[0.22em] text-accent uppercase">Private</p>
       <div className="mt-3 flex flex-wrap items-end justify-between gap-4">
-        <h1 className="font-serif text-4xl tracking-tight">My Command Center</h1>
+        <h1 className="font-serif text-4xl tracking-tight">Command</h1>
         {authed ? <LogoutButton /> : null}
       </div>
       <p className="mt-4 text-sm leading-6 text-muted">
-        This is where I prepare an application before I send it. {identity.primaryChannel} is the channel I use.{" "}
-        {identity.discoveryChannel} is how people find me.
+        This page is mine. Nobody hiring me needs it. After I sign in, each block is text I paste into{" "}
+        {identity.primaryChannel} and {identity.discoveryChannel}, and a paragraph I use when someone asks about a
+        system. The resumes I print are linked at the bottom. Search engines do not index this page.
       </p>
       <p className="mt-3 text-sm">
         <Link className="text-accent" href="/">
@@ -74,13 +75,6 @@ export default async function CommandPage() {
             </div>
           </section>
 
-          <section className="space-y-4">
-            <h2 className="font-serif text-2xl">How I talk about the systems</h2>
-            {projects.map((project) => (
-              <CopyBlock key={project.name} label={project.name} text={project.talk} />
-            ))}
-          </section>
-
           <section>
             <h2 className="font-serif text-2xl">Resumes</h2>
             <p className="mt-3 text-sm leading-6 text-muted">
@@ -98,9 +92,10 @@ export default async function CommandPage() {
         </div>
       ) : (
         <div className="mt-10">
-          <h2 className="font-serif text-2xl">Open my workspace</h2>
+          <h2 className="font-serif text-2xl">Sign in</h2>
           <p className="mt-3 mb-6 max-w-md text-sm leading-6 text-muted">
-            The password lives in my environment as CAREER_KIT_PASSWORD. Locally it matches the example file.
+            The password is the environment variable CAREER_KIT_PASSWORD. On this machine it matches the example file.
+            On Vercel it is the value I set in the project.
           </p>
           <LoginForm />
         </div>

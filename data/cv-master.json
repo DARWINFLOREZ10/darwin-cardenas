@@ -99,7 +99,7 @@
     }
   ],
   "en": {
-    "summary": "Backend-heavy software engineer in Medellín. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE. I am looking for international remote roles. The public proof I want read is three repositories, not a list of tools. I do not describe those repositories as production systems.",
+    "summary": "I am a backend-heavy software engineer in Medellín. Since 2022 I have shipped APIs and background work for paying clients, and I contribute to institutional systems at CESDE. I am looking for an international remote role. The three repositories below are how I want the work judged.",
     "statement": "I care about the write that happens twice, the update that loses a race, and the job that still has to finish after the response is gone.",
     "focus": [
       "API contracts, authorization, and tenant predicates on the query.",
@@ -107,22 +107,9 @@
       "A written limit for what the system does not do."
     ],
     "howIWork": [
-      {
-        "title": "Name the failure first",
-        "body": "Duplicates, conflicting writers, and a down dependency are the requirements. The happy path is the easy part."
-      },
-      {
-        "title": "Put the boundary in the schema",
-        "body": "Uniqueness, version columns, and a row that commits with the state it belongs to. A comment that says 'be careful' is not a boundary."
-      },
-      {
-        "title": "Leave the request",
-        "body": "If the effect can fail after I have already answered, it is a job with a retry and an idempotency key, not more code in the handler."
-      },
-      {
-        "title": "Say the limit",
-        "body": "SQLite on one host, one admin key, one HTTP step. I would rather document that than borrow the shape of a platform I did not finish."
-      }
+      "I start from the failure: the same alert twice, two people saving one row, a call that dies after I already responded.",
+      "The check lives in the database: a unique key, a version, and the job row in the same commit as the change.",
+      "If it can fail after the response, it is a job with a retry and an idempotency key. I write down what the system does not do."
     ],
     "command": {
       "checklist": [
@@ -146,7 +133,7 @@
     }
   },
   "es": {
-    "summary": "Ingeniero de software con peso en backend, en Medellín. Desde 2022 entrego software para clientes que pagan y contribuyo a sistemas institucionales en CESDE. Busco roles internacionales, incluidos remotos. La prueba pública que quiero que se lea son tres repositorios, no una lista de herramientas. No los presento como sistemas de producción.",
+    "summary": "Soy ingeniero de software, con peso en backend, en Medellín. Desde 2022 entrego APIs y trabajo en segundo plano para clientes que pagan, y contribuyo a sistemas institucionales en CESDE. Busco un rol remoto internacional. Los tres repositorios de abajo son la prueba con la que quiero que se juzgue el trabajo.",
     "focus": [
       "Contratos de API, autorización y predicados de tenant en la consulta.",
       "Una transacción para el estado y el trabajo que tiene que seguirlo.",

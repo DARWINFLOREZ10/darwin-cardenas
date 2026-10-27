@@ -44,12 +44,7 @@ export default function HomePage() {
           <p className="mt-6 max-w-2xl text-base leading-7 text-muted">{en.summary}</p>
         </div>
         <aside className="border border-line bg-panel p-5">
-          <p className="text-xs tracking-[0.18em] text-accent uppercase">Where I apply</p>
-          <p className="mt-3 text-lg">{identity.primaryChannel} first</p>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            {identity.discoveryChannel} is for discovery. I do not run the search there.
-          </p>
-          <p className="mt-5 text-xs tracking-[0.18em] text-accent uppercase">Public proof</p>
+          <p className="text-xs tracking-[0.18em] text-accent uppercase">Public proof</p>
           <ul className="mt-3 space-y-1 text-sm">
             {projects.map((project) => (
               <li key={project.name}>
@@ -59,6 +54,24 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+          <p className="mt-5 text-xs tracking-[0.18em] text-accent uppercase">Contact</p>
+          <ul className="mt-3 space-y-1 text-sm">
+            <li>
+              <a className="text-ink underline-offset-4 hover:underline" href={identity.github}>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a className="text-ink underline-offset-4 hover:underline" href={identity.linkedin}>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a className="text-ink underline-offset-4 hover:underline" href={`mailto:${identity.email}`}>
+                {identity.email}
+              </a>
+            </li>
+          </ul>
         </aside>
       </section>
 
@@ -67,7 +80,7 @@ export default function HomePage() {
           Selected systems
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
-          Each repository is a finished slice with a written limit. None of them is a production customer system, and none of them links to an empty live demo.
+          Each README says the limit. These are not customer production systems.
         </p>
         <ol className="mt-8 divide-y divide-line border-y border-line">
           {projects.map((project, index) => (
@@ -108,9 +121,8 @@ export default function HomePage() {
           </h2>
           <ul className="mt-6 space-y-5">
             {en.howIWork.map((item) => (
-              <li key={item.title}>
-                <h3 className="text-base text-ink">{item.title}</h3>
-                <p className="mt-1 text-sm leading-6 text-muted">{item.body}</p>
+              <li key={item} className="text-sm leading-6 text-muted">
+                {item}
               </li>
             ))}
           </ul>
