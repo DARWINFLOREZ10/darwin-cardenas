@@ -58,7 +58,7 @@
     }
   ],
   "education": {
-    "en": "Systems Engineering",
+    "en": "Systems Engineering degree",
     "es": "Ingeniería de Sistemas",
     "school": "Instituto Tecnológico Metropolitano (ITM)",
     "dates": "2022–2026"
@@ -82,12 +82,14 @@
       "bullets": [
         "Delivered custom backend work for paying clients, and defined requirements and scope with them directly.",
         "Built REST APIs and relational data models with Node.js, TypeScript, Python, and PostgreSQL, including authentication, authorization, and asynchronous work when the project needed it.",
-        "Owned architecture, development, infrastructure, and deployment for each project. Client identities and project details stay confidential."
+        "Owned architecture, development, infrastructure, and deployment for each project. Client identities and project details stay confidential.",
+        "After the CESDE contract ended in February 2026, client work continued. The three public systems below are what I can show from that stretch."
       ],
       "bulletsEs": [
         "Entregué soluciones backend para clientes que pagan y definí con ellos los requisitos y el alcance.",
         "Desarrollé APIs REST y modelos relacionales con Node.js, TypeScript, Python y PostgreSQL; incluí autenticación, autorización y trabajo asíncrono cuando el proyecto lo pedía.",
-        "Asumí arquitectura, desarrollo, infraestructura y despliegue en cada proyecto. La identidad de los clientes y el detalle del trabajo se quedan en privado."
+        "Asumí arquitectura, desarrollo, infraestructura y despliegue en cada proyecto. La identidad de los clientes y el detalle del trabajo se quedan en privado.",
+        "Después de que el contrato en CESDE terminó, en febrero de 2026, el trabajo con clientes siguió. Los tres sistemas públicos de abajo son lo que puedo mostrar de ese tramo."
       ]
     },
     {
@@ -209,9 +211,9 @@
         "Do not add a metric or a production claim I cannot point at. The team size I can name is the seven people at CESDE."
       ],
       "wellfoundHeadline": "Backend Software Engineer · APIs, data, async work",
-      "wellfoundAbout": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven, with C#/.NET and SQL Server. I am looking for international backend roles, including remote work and relocation.\n\nI want the work judged from three public systems:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nSystems Engineering, Instituto Tecnológico Metropolitano (ITM), 2022–2026. Spanish: native. English: B2, EASI certificate.",
+      "wellfoundAbout": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven, with C#/.NET and SQL Server. Client work continued after that contract. The three public systems are what I can show from that stretch. I am looking for international backend roles, including remote work and relocation.\n\nI want the work judged from three public systems:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nSystems Engineering degree, Instituto Tecnológico Metropolitano (ITM), 2022–2026. Spanish: native. English: B2, EASI certificate.",
       "linkedinHeadline": "Backend Software Engineer · Python, TypeScript, APIs",
-      "linkedinAbout": "I build APIs and data-driven services with Python and TypeScript. Freelance backend work for paying clients since 2022. Contract at CESDE, May 2025 to February 2026, on a team of seven. I am open to international roles, remote or relocation.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Systems Engineering at ITM, 2022–2026. English: B2, EASI certificate. I apply primarily on Wellfound.",
+      "linkedinAbout": "I build APIs and data-driven services with Python and TypeScript. Freelance backend work for paying clients since 2022. Contract at CESDE, May 2025 to February 2026, on a team of seven. Client work continued after that contract, and the three public systems are what I can show from that stretch. I am open to international roles, remote or relocation.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Systems Engineering degree, ITM, 2022–2026. English: B2, EASI certificate. I apply primarily on Wellfound.",
       "doNotSay": [
         "Senior in the headline or in the years-of-experience line.",
         "A latency, uptime, or revenue number.",

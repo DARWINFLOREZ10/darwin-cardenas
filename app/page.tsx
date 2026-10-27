@@ -30,9 +30,6 @@ export default function HomePage() {
           <Link className="text-ink" href="/resume/es">
             Hoja de vida
           </Link>
-          <Link className="text-ink" href="/command">
-            Command
-          </Link>
         </nav>
       </header>
 

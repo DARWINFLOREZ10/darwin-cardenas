@@ -2,7 +2,7 @@
 
 This is my portfolio. I built the page, the printable resumes, and Command, the private workspace I use when I apply.
 
-I am a backend software engineer in Medellín. I do not put Senior on the title.
+I am a backend software engineer in Medellín.
 
 The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.json). The live site is [darwin-cardenas.vercel.app](https://darwin-cardenas.vercel.app).
 
@@ -10,7 +10,7 @@ The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.
 
 - `/` — the portfolio. GitHub links only. I do not link an empty live demo.
 - `/resume/en` and `/resume/es` — the resumes I print from the browser dialog.
-- `/command` — where I prepare a Wellfound application (that is where I apply) and the LinkedIn text (discovery). Password: `CAREER_KIT_PASSWORD`, default `darwin-kit` from [`.env.local.example`](.env.local.example).
+- `/command` — my private page for the Wellfound and LinkedIn text. The password is `CAREER_KIT_PASSWORD` in the environment. It is not in this repository.
 
 ## Run
 

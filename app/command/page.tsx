@@ -94,8 +94,8 @@ export default async function CommandPage() {
         <div className="mt-10">
           <h2 className="font-serif text-2xl">Sign in</h2>
           <p className="mt-3 mb-6 max-w-md text-sm leading-6 text-muted">
-            The password is the environment variable CAREER_KIT_PASSWORD. On this machine it matches the example file.
-            On Vercel it is the value I set in the project.
+            The password is the environment variable CAREER_KIT_PASSWORD. It is not stored in this repository. On Vercel it is
+            the value I set in the project.
           </p>
           <LoginForm />
         </div>
