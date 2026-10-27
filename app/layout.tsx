@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s · Darwin Cardenas",
   },
   description:
-    "Backend-heavy software engineer in Medellín. Public systems: RelayOps, ReleasePilot, and FlowForge.",
+    "I am a backend-heavy software engineer in Medellín. Public systems: Alertfold, ReleasePilot, and Handoff.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
