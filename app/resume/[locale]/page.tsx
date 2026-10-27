@@ -21,7 +21,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 const labels: Record<
   Locale,
-  { print: string; other: string; otherHref: string; summary: string; experience: string; systems: string; skills: string }
+  {
+    print: string;
+    other: string;
+    otherHref: string;
+    summary: string;
+    experience: string;
+    systems: string;
+    skills: string;
+    education: string;
+    languages: string;
+  }
 > = {
   en: {
     print: "Print / Save PDF",
@@ -31,6 +41,8 @@ const labels: Record<
     experience: "Experience",
     systems: "Selected systems",
     skills: "Skills",
+    education: "Education",
+    languages: "Languages",
   },
   es: {
     print: "Imprimir / Guardar PDF",
@@ -40,6 +52,8 @@ const labels: Record<
     experience: "Experiencia",
     systems: "Sistemas seleccionados",
     skills: "Habilidades",
+    education: "Educación",
+    languages: "Idiomas",
   },
 };
 
@@ -47,9 +61,11 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const copy = labels[locale];
-  const { identity, experience, projects, skills } = cv;
+  const { identity, experience, projects, skillGroups, education, languages } = cv;
   const localized = cv[locale];
-  const end = (job: (typeof experience)[number]) => (locale === "es" ? job.endEs : job.end);
+  const es = locale === "es";
+  const end = (job: (typeof experience)[number]) => (es ? job.endEs : job.end);
+  const start = (job: (typeof experience)[number]) => (es ? job.startEs : job.start);
   const site = identity.portfolioUrl.replace(/^https?:\/\//, "");
 
   return (
@@ -65,9 +81,15 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
 
         <header className="border-b border-black/20 pb-3">
           <h1 className="font-serif text-[1.6rem] leading-tight tracking-tight">{identity.name}</h1>
-          <p className="mt-1 text-base">{identity.title}</p>
+          <p className="mt-1 text-base">{es ? identity.titleEs : identity.title}</p>
           <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-1 text-[0.8rem] leading-5">
             <span>{identity.location}</span>
+            <span aria-hidden="true">·</span>
+            <span>{es ? identity.workModeEs : identity.workMode}</span>
+            <span aria-hidden="true">·</span>
+            <a className="whitespace-nowrap" href={`tel:${identity.phone.replace(/\s/g, "")}`}>
+              {identity.phone}
+            </a>
             <span aria-hidden="true">·</span>
             <a className="whitespace-nowrap" href={`mailto:${identity.email}`}>
               {identity.email}
@@ -106,17 +128,17 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
             <div key={job.org} className="resume-block mt-3">
               <div className="flex items-baseline justify-between gap-4 text-[0.84rem]">
                 <p className="font-medium">
-                  {locale === "es" ? job.roleEs : job.role}
+                  {es ? job.roleEs : job.role}
                   {" · "}
-                  {locale === "es" ? job.orgEs : job.org}
+                  {es ? job.orgEs : job.org}
                 </p>
                 <p className="shrink-0">
-                  {job.start} — {end(job)}
+                  {start(job)} — {end(job)}
                 </p>
               </div>
-              <p className="text-[0.78rem]">{job.location}</p>
+              <p className="text-[0.78rem]">{es ? job.locationEs : job.location}</p>
               <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[0.84rem] leading-5">
-                {(locale === "es" ? job.bulletsEs : job.bullets).map((bullet) => (
+                {(es ? job.bulletsEs : job.bullets).map((bullet) => (
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
@@ -136,7 +158,11 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
                   <a href={project.repo}>{project.name}</a>
                   <span className="font-normal"> · {project.stack}</span>
                 </p>
-                <p className="mt-0.5 text-[0.84rem] leading-5">{text.problem}</p>
+                <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[0.84rem] leading-5">
+                  {text.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
               </div>
             );
           })}
@@ -146,7 +172,35 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
           <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
             {copy.skills}
           </h2>
-          <p className="mt-2 text-[0.84rem] leading-5">{skills.join(" · ")}</p>
+          <ul className="mt-2 space-y-0.5 text-[0.84rem] leading-5">
+            {skillGroups.map((group) => (
+              <li key={group.en}>
+                <span className="font-medium">{es ? group.es : group.en}: </span>
+                {(es && "itemsEs" in group && group.itemsEs ? group.itemsEs : group.items).join(", ")}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.education}
+          </h2>
+          <p className="mt-2 flex items-baseline justify-between gap-4 text-[0.84rem] leading-5">
+            <span>
+              <span className="font-medium">{es ? education.es : education.en}</span>
+              {" · "}
+              {education.school}
+            </span>
+            <span className="shrink-0">{education.dates}</span>
+          </p>
+        </section>
+
+        <section className="mt-4">
+          <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
+            {copy.languages}
+          </h2>
+          <p className="mt-2 text-[0.84rem] leading-5">{es ? languages.es : languages.en}</p>
         </section>
       </div>
     </article>

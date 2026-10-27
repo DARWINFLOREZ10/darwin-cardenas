@@ -1,10 +1,12 @@
 {
   "identity": {
     "name": "Darwin Cardenas Florez",
-    "title": "Backend / Full-Stack Software Engineer",
-    "level": "Mid-level",
+    "title": "Backend Software Engineer",
+    "titleEs": "Ingeniero de Software Backend",
     "location": "Medellín, Colombia",
-    "workMode": "Remote",
+    "workMode": "Remote, open to relocation",
+    "workModeEs": "Remoto, abierto a reubicación",
+    "phone": "+57 300 379 4307",
     "email": "darwinflorezcardenas@gmail.com",
     "github": "https://github.com/DARWINFLOREZ10",
     "githubHandle": "DARWINFLOREZ10",
@@ -16,52 +18,123 @@
   },
   "skills": [
     "Python",
-    "FastAPI",
     "TypeScript",
+    "C#",
+    "FastAPI",
     "Node.js",
-    "Next.js",
     "PostgreSQL",
-    "SQLite",
+    "SQL Server",
     "Redis",
-    "Celery",
     "Docker"
   ],
+  "skillGroups": [
+    {
+      "en": "Languages",
+      "es": "Lenguajes",
+      "items": ["Python", "TypeScript", "JavaScript", "C#", "SQL"]
+    },
+    {
+      "en": "Backend",
+      "es": "Backend",
+      "items": ["FastAPI", "Node.js", "Fastify", "Express", "REST APIs", "OpenAPI"],
+      "itemsEs": ["FastAPI", "Node.js", "Fastify", "Express", "APIs REST", "OpenAPI"]
+    },
+    {
+      "en": "Data and asynchronous work",
+      "es": "Datos y trabajo asíncrono",
+      "items": ["PostgreSQL", "SQL Server", "SQLite", "Redis", "Celery", "BullMQ"]
+    },
+    {
+      "en": "Security and delivery",
+      "es": "Seguridad y entrega",
+      "items": ["JWT", "OAuth2", "RBAC", "Docker", "GitHub Actions", "API and integration testing"],
+      "itemsEs": ["JWT", "OAuth2", "RBAC", "Docker", "GitHub Actions", "pruebas de API e integración"]
+    },
+    {
+      "en": "Frontend",
+      "es": "Frontend",
+      "items": ["Next.js (portfolio)"],
+      "itemsEs": ["Next.js (portafolio)"]
+    }
+  ],
+  "education": {
+    "en": "Systems Engineering",
+    "es": "Ingeniería de Sistemas",
+    "school": "Instituto Tecnológico Metropolitano (ITM)",
+    "dates": "2022–2026"
+  },
+  "languages": {
+    "en": "Spanish: native. English: B2, EASI certificate.",
+    "es": "Español: nativo. Inglés: B2, certificado EASI."
+  },
   "experience": [
     {
-      "role": "Software Engineer",
-      "roleEs": "Ingeniero de software",
-      "org": "Independent client work and CESDE",
-      "orgEs": "Clientes independientes y CESDE",
-      "location": "Medellín, Colombia",
+      "role": "Freelance Backend Software Engineer",
+      "roleEs": "Ingeniero de Software Backend Freelance",
+      "org": "Independent clients",
+      "orgEs": "Clientes independientes",
+      "location": "Remote",
+      "locationEs": "Remoto",
       "start": "2022",
+      "startEs": "2022",
       "end": "Present",
       "endEs": "Actualidad",
       "bullets": [
-        "Deliver software for paying clients. Most of that work is APIs, relational data, and background processing.",
-        "Contribute to institutional systems at CESDE.",
-        "Keep client and institutional systems out of the public repositories. The repositories below are separate demonstrations."
+        "Delivered custom backend work for paying clients, and defined requirements and scope with them directly.",
+        "Built REST APIs and relational data models with Node.js, TypeScript, Python, and PostgreSQL, including authentication, authorization, and asynchronous work when the project needed it.",
+        "Owned architecture, development, infrastructure, and deployment for each project. Client identities and project details stay confidential."
       ],
       "bulletsEs": [
-        "Entrego software para clientes que pagan. La mayor parte son APIs, datos relacionales y procesamiento en segundo plano.",
-        "Contribuyo a sistemas institucionales en CESDE.",
-        "Los sistemas de clientes y los institucionales no están en los repositorios públicos. Esos repositorios son demostraciones aparte."
+        "Entregué soluciones backend para clientes que pagan y definí con ellos los requisitos y el alcance.",
+        "Desarrollé APIs REST y modelos relacionales con Node.js, TypeScript, Python y PostgreSQL; incluí autenticación, autorización y trabajo asíncrono cuando el proyecto lo pedía.",
+        "Asumí arquitectura, desarrollo, infraestructura y despliegue en cada proyecto. La identidad de los clientes y el detalle del trabajo se quedan en privado."
+      ]
+    },
+    {
+      "role": "Backend Developer, Contract",
+      "roleEs": "Desarrollador Backend, Contrato",
+      "org": "CESDE",
+      "orgEs": "CESDE",
+      "location": "Medellín, Colombia",
+      "locationEs": "Medellín, Colombia",
+      "start": "May 2025",
+      "startEs": "mayo 2025",
+      "end": "Feb 2026",
+      "endEs": "febrero 2026",
+      "bullets": [
+        "Contributed to institutional systems used by students, faculty, and administrative staff, on a team of seven.",
+        "Developed and adjusted APIs and modules with C#/.NET, and worked with SQL Server tables, migrations, and query optimization.",
+        "Helped restore functionality during a migration-related incident and collaborated on the corrective changes."
+      ],
+      "bulletsEs": [
+        "Contribuí a sistemas institucionales usados por estudiantes, docentes y personal administrativo, en un equipo de siete personas.",
+        "Desarrollé y ajusté APIs y módulos con C#/.NET, y trabajé con tablas, migraciones y optimización de consultas en SQL Server.",
+        "Ayudé a recuperar funcionalidad durante una incidencia ligada a una migración y colaboré en los ajustes correctivos."
       ]
     }
   ],
   "projects": [
     {
       "name": "Alertfold",
-      "repo": "https://github.com/DARWINFLOREZ10/relayops",
+      "repo": "https://github.com/DARWINFLOREZ10/Alertfold",
       "stack": "Python, FastAPI, SQLite, Docker",
       "en": {
         "problem": "Incident intake when the same alert arrives twice, a storm should share one open incident, and a notification cannot depend on the request staying up.",
         "design": "Per-tenant HMAC, hashed API tokens with roles, optimistic version checks, and a transactional outbox. Dead letters can be requeued by an admin. SQLite is a deliberate single-host limit.",
-        "evidence": "Integration tests for dedupe, tenant isolation, HTTP 409, the 64 KiB body cap, outbox retry, and dead-letter requeue. Two ADRs for the outbox and tenant boundary, one for the SQLite limit."
+        "evidence": "Integration tests for dedupe, tenant isolation, HTTP 409, the 64 KiB body cap, outbox retry, and dead-letter requeue. Two ADRs for the outbox and tenant boundary, one for the SQLite limit.",
+        "bullets": [
+          "Built an incident intake API with signed webhooks, event deduplication, alert grouping, tenant-scoped access, and version-checked state transitions.",
+          "Implemented a transactional outbox with retries and dead-letter requeue, plus integration tests, Docker Compose, and architecture decision records."
+        ]
       },
       "es": {
         "problem": "Recepción de incidentes cuando la misma alerta llega dos veces, una ráfaga debe compartir un incidente abierto, y la notificación no puede depender de que el request siga vivo.",
         "design": "HMAC por tenant, tokens con hash y roles, versiones optimistas, y un outbox transaccional. Un admin puede reencolar un dead letter. SQLite es un límite deliberado de un solo host.",
-        "evidence": "Tests de integración para deduplicación, aislamiento de tenant, HTTP 409, tope de 64 KiB, reintento del outbox y reencolado. ADRs del outbox, del límite de tenant y de SQLite."
+        "evidence": "Tests de integración para deduplicación, aislamiento de tenant, HTTP 409, tope de 64 KiB, reintento del outbox y reencolado. ADRs del outbox, del límite de tenant y de SQLite.",
+        "bullets": [
+          "Desarrollé una API de incidentes con webhooks firmados, deduplicación, agrupación de alertas, acceso por organización y cambios de estado con control de versión.",
+          "Implementé un outbox transaccional con reintentos y reencolado de dead letters, más pruebas de integración, Docker Compose y registros de decisiones."
+        ]
       },
       "talk": "Alertfold accepts a signed alert and either attaches it to the open incident or opens one. The notification row commits in that same transaction. A worker retries delivery and, after five failures, marks the message dead. An admin can requeue it. Two responders updating the same version get a 409, not a silent overwrite. I would move it to Postgres before running more than one API process."
     },
@@ -72,34 +145,50 @@
       "en": {
         "problem": "A feature flag that is only a boolean does not give a team a stable cohort, an emergency off switch, or a record of who overwrote whom.",
         "design": "SHA-256 maps a subject into 10,000 buckets. Raising the rollout keeps subjects already included. enabled=false wins over the percentage. The flag update and its audit row share one transaction, and a stale version returns 409.",
-        "evidence": "Tests for cohort monotonicity, the kill switch, route handlers, and the version conflict. ADRs for bucketing and for the optimistic audit."
+        "evidence": "Tests for cohort monotonicity, the kill switch, route handlers, and the version conflict. ADRs for bucketing and for the optimistic audit.",
+        "bullets": [
+          "Built a feature-flag application with deterministic percentage rollouts, an emergency off switch, version-checked updates, and an audit trail.",
+          "Implemented a responsive operator interface, protected API routes, and tests for rollout decisions and conflicting updates."
+        ]
       },
       "es": {
         "problem": "Un feature flag que solo es un booleano no da una cohorte estable, un apagado de emergencia, ni un registro de quién pisó a quién.",
         "design": "SHA-256 ubica al sujeto en 10.000 buckets. Subir el rollout conserva a quien ya entró. enabled=false gana sobre el porcentaje. El cambio y su fila de auditoría van en una transacción, y una versión vieja responde 409.",
-        "evidence": "Tests de monotonía de la cohorte, del kill switch, de los handlers y del conflicto de versión. ADRs del bucketing y de la auditoría optimista."
+        "evidence": "Tests de monotonía de la cohorte, del kill switch, de los handlers y del conflicto de versión. ADRs del bucketing y de la auditoría optimista.",
+        "bullets": [
+          "Desarrollé una aplicación de feature flags con porcentajes determinísticos, apagado de emergencia, cambios con control de versión y auditoría.",
+          "Implementé una interfaz adaptable, rutas API protegidas y pruebas para las decisiones de rollout y los cambios concurrentes."
+        ]
       },
       "talk": "ReleasePilot does not look up a subject in a table to decide a rollout. The bucket is a hash of salt, flag key, and subject. Moving from 25% to 40% keeps the people already inside, because their bucket does not move. Turning the flag off returns false even at 100%. If two operators save the same version, the second gets 409 and the audit still shows the first write. It is one SQLite file and one admin key. That is the limit, not a hosted flag service."
     },
     {
       "name": "Handoff",
-      "repo": "https://github.com/DARWINFLOREZ10/flowforge-platform",
+      "repo": "https://github.com/DARWINFLOREZ10/Handoff",
       "stack": "Python, FastAPI, PostgreSQL, Redis, Celery",
       "en": {
         "problem": "A workflow step that runs inside the request dies when the client disconnects, and a tenant header without a membership check is not tenancy.",
         "design": "Every tenant route requires a membership row. Starting a run inserts the run and its job in one commit, then a worker POSTs the step with an Idempotency-Key. Failures stay queued until the attempt budget is spent. One HTTP step, one worker process.",
-        "evidence": "Integration tests: a non-member receives 403, the run and the job share one commit, a failed POST retries, and a later success is not sent twice."
+        "evidence": "Integration tests: a non-member receives 403, the run and the job share one commit, a failed POST retries, and a later success is not sent twice.",
+        "bullets": [
+          "Built one workflow step that leaves the request: the run and its job commit together, and every tenant route requires a membership row.",
+          "A worker POSTs that step with an idempotency key, retries until the attempt budget is spent, and does not send a finished job again."
+        ]
       },
       "es": {
         "problem": "Un paso de workflow dentro del request muere si el cliente se desconecta, y un header de tenant sin fila de membresía no es tenancy.",
         "design": "Toda ruta con tenant exige una membresía. Al iniciar un run, el run y su job entran en el mismo commit. Un worker hace el POST con Idempotency-Key. El fallo sigue en cola hasta agotar los intentos. Un solo paso HTTP y un solo proceso worker.",
-        "evidence": "Tests de integración: un no miembro recibe 403, el run y el job comparten un commit, un POST fallido reintenta, y un éxito posterior no se envía dos veces."
+        "evidence": "Tests de integración: un no miembro recibe 403, el run y el job comparten un commit, un POST fallido reintenta, y un éxito posterior no se envía dos veces.",
+        "bullets": [
+          "Dejé un paso de workflow fuera del request: el run y su job se commitean juntos, y toda ruta con tenant exige una membresía.",
+          "Un worker hace el POST con una clave de idempotencia, reintenta hasta agotar el presupuesto y no vuelve a enviar un job terminado."
+        ]
       },
       "talk": "Handoff is the one loop I kept from a wider scaffold. Creating a run writes the run and the job together, so there is no run without work to do. The request returns while the step is still queued. The worker sends one HTTP call and the receiver can dedupe on the job id. If you are not a member of the organization, the route is 403 even if you know the tenant id. I do not claim Google OAuth, reports, or API keys. Those paths are gone."
     }
   ],
   "en": {
-    "summary": "I am a backend-heavy software engineer in Medellín. Since 2022 I have shipped APIs and background work for paying clients, and I contribute to institutional systems at CESDE. I am looking for an international remote role. The three repositories below are how I want the work judged.",
+    "summary": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven. I am looking for international backend roles, including remote work and relocation, with room to grow in system design and reliability.",
     "statement": "I care about the write that happens twice, the update that loses a race, and the job that still has to finish after the response is gone.",
     "focus": [
       "API contracts, authorization, and tenant predicates on the query.",
@@ -116,24 +205,25 @@
         "Read the Limits section of the repo before I describe it.",
         "Lead with the failure mode, then the mechanism, then the test that proves it.",
         "Apply on Wellfound first. LinkedIn is how people find me, not where I run the search.",
-        "Keep the headline at Backend / Full-Stack Software Engineer. Do not write Senior.",
-        "Do not add a metric, a team size, or a production claim I cannot point at."
+        "Keep the headline at Backend Software Engineer. Do not write Senior.",
+        "Do not add a metric or a production claim I cannot point at. The team size I can name is the seven people at CESDE."
       ],
-      "wellfoundHeadline": "Backend / Full-Stack Software Engineer · APIs, consistency, async work",
-      "wellfoundAbout": "I am a backend-heavy software engineer in Medellín, open to international remote roles. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE.\n\nI want the work judged from three public systems:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nStack: Python, FastAPI, TypeScript, PostgreSQL, Redis, Docker. Next.js for this site.",
-      "linkedinHeadline": "Backend / Full-Stack Software Engineer · Python, TypeScript, APIs",
-      "linkedinAbout": "Backend-heavy software engineer in Medellín. Since 2022 I have delivered software for paying clients and contributed to institutional systems at CESDE. I am open to international remote roles.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Each README states the problem, the design, and the limit. I apply primarily on Wellfound.",
+      "wellfoundHeadline": "Backend Software Engineer · APIs, data, async work",
+      "wellfoundAbout": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven, with C#/.NET and SQL Server. I am looking for international backend roles, including remote work and relocation.\n\nI want the work judged from three public systems:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nSystems Engineering, Instituto Tecnológico Metropolitano (ITM), 2022–2026. Spanish: native. English: B2, EASI certificate.",
+      "linkedinHeadline": "Backend Software Engineer · Python, TypeScript, APIs",
+      "linkedinAbout": "I build APIs and data-driven services with Python and TypeScript. Freelance backend work for paying clients since 2022. Contract at CESDE, May 2025 to February 2026, on a team of seven. I am open to international roles, remote or relocation.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Systems Engineering at ITM, 2022–2026. English: B2, EASI certificate. I apply primarily on Wellfound.",
       "doNotSay": [
         "Senior in the headline or in the years-of-experience line.",
-        "Any number for latency, uptime, revenue, or team size.",
+        "A latency, uptime, or revenue number.",
+        "A team size other than the seven people at CESDE.",
         "That Alertfold, ReleasePilot, or Handoff have production users.",
-        "A client or employer I have not already named. The named record is client work since 2022 and CESDE.",
+        "A client or employer I have not already named. The named record is freelance client work since 2022 and the CESDE contract.",
         "We, when I mean I."
       ]
     }
   },
   "es": {
-    "summary": "Soy ingeniero de software, con peso en backend, en Medellín. Desde 2022 entrego APIs y trabajo en segundo plano para clientes que pagan, y contribuyo a sistemas institucionales en CESDE. Busco un rol remoto internacional. Los tres repositorios de abajo son la prueba con la que quiero que se juzgue el trabajo.",
+    "summary": "Desarrollo APIs y servicios basados en datos con Python y TypeScript. Desde 2022 asumo la definición técnica, la implementación y el despliegue del trabajo freelance para clientes que pagan. De mayo de 2025 a febrero de 2026 contribuí a sistemas institucionales en CESDE, en un equipo de siete personas. Busco roles backend internacionales, remotos o con reubicación, con espacio para seguir creciendo en diseño de sistemas y confiabilidad.",
     "focus": [
       "Contratos de API, autorización y predicados de tenant en la consulta.",
       "Una transacción para el estado y el trabajo que tiene que seguirlo.",
