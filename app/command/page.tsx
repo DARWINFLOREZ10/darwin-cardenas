@@ -2,15 +2,28 @@ import { CopyBlock } from "@/components/copy-block";
 import { LoginForm } from "@/components/login-form";
 import { LogoutButton } from "@/components/logout-button";
 import { cv } from "@/lib/cv";
+import { outreachMessage } from "@/lib/offer";
 import { isAuthed } from "@/lib/session";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
+const privateDescription = "Private notes. This page is not indexed.";
+
 export const metadata: Metadata = {
   title: "Command",
+  description: privateDescription,
   robots: { index: false, follow: false },
+  openGraph: {
+    title: "Command",
+    description: privateDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Command",
+    description: privateDescription,
+  },
 };
 
 export default async function CommandPage() {
@@ -29,9 +42,10 @@ export default async function CommandPage() {
         {authed ? <LogoutButton /> : null}
       </div>
       <p className="mt-4 text-sm leading-6 text-muted">
-        This page is mine. Nobody hiring me needs it. After I sign in, each block is text I paste into{" "}
-        {identity.primaryChannel} and {identity.discoveryChannel}, and a paragraph I use when someone asks about a
-        system. The resumes I print are linked at the bottom. Search engines do not index this page.
+        This page is mine. After I sign in, the first block is the note I send to a founder. The blocks after that are
+        text I paste into {identity.primaryChannel} and {identity.discoveryChannel} when I apply, and a paragraph I use
+        when someone asks about a system. The resumes I print are linked at the bottom. Search engines do not index
+        this page.
       </p>
       <p className="mt-3 text-sm">
         <Link className="text-accent" href="/">
@@ -41,6 +55,22 @@ export default async function CommandPage() {
 
       {authed ? (
         <div className="mt-10 space-y-10">
+          <section className="space-y-4">
+            <h2 className="font-serif text-2xl">One engagement</h2>
+            <p className="text-sm leading-6 text-muted">
+              I paste this into a short note on LinkedIn or into an email. The page does not bring the visit. The note
+              does. Ten founders who have a step that dies with the request.
+            </p>
+            <CopyBlock
+              label="LinkedIn or email"
+              text={outreachMessage({
+                name: identity.name,
+                location: identity.location,
+                portfolioUrl: identity.portfolioUrl,
+              })}
+            />
+          </section>
+
           <section>
             <h2 className="font-serif text-2xl">Before I apply</h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted">

@@ -1,0 +1,27 @@
+{
+  "title": "Move one step off the request",
+  "eyebrow": "One engagement",
+  "priceUsd": 1500,
+  "timeframe": "About one week",
+  "payment": "Half to start. Half on delivery.",
+  "startCondition": "Work starts when the first half is paid.",
+  "failure": "A step inside the HTTP request is lost when the client closes the tab, the same call arrives twice, or one save overwrites another.",
+  "includes": [
+    "The failure, written: what is lost, and the limit.",
+    "The job row in the same commit as the business change, with retry and an idempotency key.",
+    "Tests for that failure.",
+    "A note of what the system still does not do."
+  ],
+  "excludes": [
+    "A rewrite of the system.",
+    "Production access before the scope is written.",
+    "A retainer."
+  ],
+  "cta": "Email the failure",
+  "emailSubject": "Move one step off the request",
+  "emailBody": "The step that fails:\n\nWhat is lost when it fails:\n\nWhat should still be true after the change:\n",
+  "spanishLine": "Si prefieres escribir en español, el alcance es el mismo: un flujo, por escrito, antes de empezar. WhatsApp o correo, con el fallo descrito.",
+  "whatsappText": "Hola Darwin. El paso que se pierde es: ",
+  "employmentLine": "I am also open to an international backend role.",
+  "proofLine": "These three are the proof for that offer. Each README says the limit. They are not customer production systems."
+}

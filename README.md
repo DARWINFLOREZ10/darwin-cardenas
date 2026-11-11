@@ -8,7 +8,7 @@ The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.
 
 ## Routes
 
-- `/` — the portfolio. GitHub links only. I do not link an empty live demo.
+- `/` — the portfolio. One priced engagement, then the three systems as proof. The price and scope live in [`data/offer.json`](data/offer.json). GitHub links only. I do not link an empty live demo.
 - `/resume/en` and `/resume/es` — the resumes I print from the browser dialog.
 - `/command` — my private page for the Wellfound and LinkedIn text. The password is `CAREER_KIT_PASSWORD` in the environment. It is not in this repository.
 
