@@ -1,5 +1,5 @@
 import { cv } from "@/lib/cv";
-import { formatUsd, offer, offerDescription } from "@/lib/offer";
+import { formatOfferPrice, offer, offerDescription } from "@/lib/offer";
 import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
@@ -18,7 +18,7 @@ const serif = Newsreader({
 });
 
 const description = offerDescription();
-const socialTitle = `${offer.title} — ${formatUsd(offer.priceUsd)}`;
+const socialTitle = `${offer.title} — ${formatOfferPrice()}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(cv.identity.portfolioUrl),

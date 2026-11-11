@@ -6,6 +6,15 @@ export function formatUsd(amount: number): string {
   return `${amount.toLocaleString("en-US")} USD`;
 }
 
+export function formatOfferPrice(): string {
+  return `${offer.pricePrefix} ${formatUsd(offer.priceUsd)}`;
+}
+
+export function spanishOfferLine(): string {
+  const amount = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 0 }).format(offer.priceUsd);
+  return `Si prefieres escribir en español, el piso es el mismo: desde ${amount} USD, un flujo, por escrito, antes de empezar. WhatsApp o correo, con el fallo descrito.`;
+}
+
 export function telHref(phone: string): string {
   return `tel:${phone.replace(/\s/g, "")}`;
 }
@@ -24,7 +33,7 @@ export function offerMailto(email: string): string {
 }
 
 export function offerDescription(): string {
-  return `${offer.title}. ${formatUsd(offer.priceUsd)}, half to start, about one week. Email the failure. Scope in writing before the work starts.`;
+  return `${offer.title}. ${formatOfferPrice()} for one flow, half to start, about one week. Email the failure. Scope in writing before the work starts.`;
 }
 
 export function outreachMessage(input: { name: string; location: string; portfolioUrl: string }): string {
@@ -32,7 +41,7 @@ export function outreachMessage(input: { name: string; location: string; portfol
   return [
     `I'm ${input.name}, a backend engineer in ${city}.`,
     `I take one fixed piece of work: ${offer.title.charAt(0).toLowerCase()}${offer.title.slice(1)}. That is the job row in the same commit as the business change, a retry with a budget, an idempotency key, tests for that failure, and a written limit.`,
-    `${formatUsd(offer.priceUsd)}, half to start, about a week.`,
+    `${formatOfferPrice()} for one flow, half to start, about a week. If the failure is larger, the scope email names the number before any work starts.`,
     "If a step in your product dies when the user closes the tab, arrives twice, or overwrites another save, reply with that failure.",
     input.portfolioUrl,
   ].join("\n\n");
@@ -64,7 +73,7 @@ export function offerJsonLd(identity: JsonLdIdentity) {
       name: offer.title,
       price: String(offer.priceUsd),
       priceCurrency: "USD",
-      description: offer.failure,
+      description: `${formatOfferPrice()}. ${offer.priceScope}`,
     },
   };
 }

@@ -1,5 +1,5 @@
 import { cv } from "@/lib/cv";
-import { formatUsd, offer, offerJsonLd, offerMailto, telHref, whatsappHref } from "@/lib/offer";
+import { formatUsd, offer, offerJsonLd, offerMailto, spanishOfferLine, telHref, whatsappHref } from "@/lib/offer";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -58,7 +58,10 @@ export default function HomePage() {
       <section className="border-b border-line py-12" aria-labelledby="offer">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <p className="text-xs tracking-[0.18em] text-accent uppercase">{offer.eyebrow}</p>
-          <p className="font-serif text-3xl text-accent">{price}</p>
+          <div className="text-right">
+            <p className="text-xs tracking-[0.18em] text-accent uppercase">{offer.pricePrefix}</p>
+            <p className="font-serif text-3xl text-accent">{price}</p>
+          </div>
         </div>
         <h2 id="offer" className="mt-3 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl">
           {offer.title}
@@ -106,7 +109,8 @@ export default function HomePage() {
           </a>
         </div>
         <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">{offer.startCondition}</p>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">{offer.spanishLine}</p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">{offer.priceScope}</p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">{spanishOfferLine()}</p>
       </section>
 
       <section className="grid gap-10 border-b border-line py-12 lg:grid-cols-[1.4fr_0.8fr]">

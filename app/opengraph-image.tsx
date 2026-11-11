@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
-import { formatUsd, offer } from "@/lib/offer";
+import { formatOfferPrice, offer } from "@/lib/offer";
 
-export const alt = `${offer.title}. ${formatUsd(offer.priceUsd)}, half to start.`;
+export const alt = `${offer.title}. ${formatOfferPrice()}, half to start.`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,7 +26,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 68, lineHeight: 1.05, maxWidth: 980 }}>{offer.title}</div>
           <div style={{ display: "flex", marginTop: 28, color: "#c4a574", fontSize: 36 }}>
-            {formatUsd(offer.priceUsd)} · half to start
+            {formatOfferPrice()} · half to start
           </div>
         </div>
         <div style={{ display: "flex", color: "#a39c90", fontSize: 24 }}>
