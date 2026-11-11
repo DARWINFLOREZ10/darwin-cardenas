@@ -1,3 +1,5 @@
+import { cv } from "@/lib/cv";
+import { formatUsd, offer, offerDescription } from "@/lib/offer";
 import type { Metadata } from "next";
 import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
@@ -15,13 +17,28 @@ const serif = Newsreader({
   style: ["normal", "italic"],
 });
 
+const description = offerDescription();
+const socialTitle = `${offer.title} — ${formatUsd(offer.priceUsd)}`;
+
 export const metadata: Metadata = {
+  metadataBase: new URL(cv.identity.portfolioUrl),
   title: {
-    default: "Darwin Cardenas Florez",
+    default: `${cv.identity.name} — ${offer.title}`,
     template: "%s · Darwin Cardenas",
   },
-  description:
-    "I am a backend-heavy software engineer in Medellín. Public systems: Alertfold, ReleasePilot, and Handoff.",
+  description,
+  openGraph: {
+    title: socialTitle,
+    description,
+    url: cv.identity.portfolioUrl,
+    siteName: cv.identity.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: socialTitle,
+    description,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

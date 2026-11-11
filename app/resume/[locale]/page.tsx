@@ -13,9 +13,26 @@ export function generateStaticParams(): Params[] {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { locale } = await params;
   if (!isLocale(locale)) return {};
+  const title = locale === "en" ? "Resume" : "Hoja de vida";
+  const description =
+    locale === "en"
+      ? "Resume of Darwin Cardenas Florez, backend software engineer in Medellín."
+      : "Hoja de vida de Darwin Cardenas Florez, ingeniero de software backend en Medellín.";
   return {
-    title: locale === "en" ? "Resume" : "Hoja de vida",
+    title,
+    description,
     robots: { index: true, follow: true },
+    alternates: { canonical: `/resume/${locale}` },
+    openGraph: {
+      title: `${title} · Darwin Cardenas`,
+      description,
+      url: `/resume/${locale}`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} · Darwin Cardenas`,
+      description,
+    },
   };
 }
 

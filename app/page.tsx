@@ -1,11 +1,27 @@
 import { cv } from "@/lib/cv";
+import { formatUsd, offer, offerJsonLd, offerMailto, telHref, whatsappHref } from "@/lib/offer";
+import type { Metadata } from "next";
 import Link from "next/link";
 
 const { identity, en, projects, experience, skills } = cv;
+const price = formatUsd(offer.priceUsd);
+const mailto = offerMailto(identity.email);
+const call = telHref(identity.phone);
+const whatsapp = whatsappHref(identity.phone, offer.whatsappText);
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
+  const jsonLd = offerJsonLd(identity);
+
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <header className="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
         <div>
           <p className="text-xs tracking-[0.22em] text-accent uppercase">
@@ -21,8 +37,14 @@ export default function HomePage() {
           <a className="text-ink" href={identity.linkedin}>
             LinkedIn
           </a>
-          <a className="text-ink" href={`mailto:${identity.email}`}>
+          <a className="text-ink" href={mailto}>
             Email
+          </a>
+          <a className="text-ink" href={call}>
+            {identity.phone}
+          </a>
+          <a className="text-ink" href={whatsapp}>
+            WhatsApp
           </a>
           <Link className="text-ink" href="/resume/en">
             Resume
@@ -33,12 +55,65 @@ export default function HomePage() {
         </nav>
       </header>
 
+      <section className="border-b border-line py-12" aria-labelledby="offer">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <p className="text-xs tracking-[0.18em] text-accent uppercase">{offer.eyebrow}</p>
+          <p className="font-serif text-3xl text-accent">{price}</p>
+        </div>
+        <h2 id="offer" className="mt-3 max-w-3xl font-serif text-4xl tracking-tight sm:text-5xl">
+          {offer.title}
+        </h2>
+        <p className="mt-3 text-sm text-muted">
+          {offer.timeframe}
+          <span aria-hidden="true"> · </span>
+          {offer.payment}
+        </p>
+        <dl className="mt-8 max-w-3xl space-y-6 text-sm leading-6">
+          <div>
+            <dt className="text-accent">The failure</dt>
+            <dd className="mt-1 text-ink">{offer.failure}</dd>
+          </div>
+          <div>
+            <dt className="text-accent">The change</dt>
+            <dd className="mt-2">
+              <ul className="list-disc space-y-2 pl-5 text-muted">
+                {offer.includes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-accent">Not included</dt>
+            <dd className="mt-2">
+              <ul className="list-disc space-y-2 pl-5 text-muted">
+                {offer.excludes.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+          <a className="border border-accent bg-accent px-4 py-2 text-ink-dark" href={mailto}>
+            {offer.cta}
+          </a>
+          <a className="text-ink underline-offset-4 hover:underline" href={call}>
+            {identity.phone}
+          </a>
+          <a className="text-ink underline-offset-4 hover:underline" href={whatsapp}>
+            WhatsApp
+          </a>
+        </div>
+        <p className="mt-4 max-w-2xl text-sm leading-6 text-muted">{offer.startCondition}</p>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">{offer.spanishLine}</p>
+      </section>
+
       <section className="grid gap-10 border-b border-line py-12 lg:grid-cols-[1.4fr_0.8fr]">
         <div>
           <p className="font-serif text-3xl leading-snug tracking-tight text-ink italic sm:text-4xl">
             {en.statement}
           </p>
-          <p className="mt-6 max-w-2xl text-base leading-7 text-muted">{en.summary}</p>
         </div>
         <aside className="border border-line bg-panel p-5">
           <p className="text-xs tracking-[0.18em] text-accent uppercase">Public proof</p>
@@ -54,18 +129,23 @@ export default function HomePage() {
           <p className="mt-5 text-xs tracking-[0.18em] text-accent uppercase">Contact</p>
           <ul className="mt-3 space-y-1 text-sm">
             <li>
-              <a className="text-ink underline-offset-4 hover:underline" href={identity.github}>
-                GitHub
+              <a className="text-ink underline-offset-4 hover:underline" href={mailto}>
+                {identity.email}
+              </a>
+            </li>
+            <li>
+              <a className="text-ink underline-offset-4 hover:underline" href={call}>
+                {identity.phone}
+              </a>
+            </li>
+            <li>
+              <a className="text-ink underline-offset-4 hover:underline" href={whatsapp}>
+                WhatsApp
               </a>
             </li>
             <li>
               <a className="text-ink underline-offset-4 hover:underline" href={identity.linkedin}>
                 LinkedIn
-              </a>
-            </li>
-            <li>
-              <a className="text-ink underline-offset-4 hover:underline" href={`mailto:${identity.email}`}>
-                {identity.email}
               </a>
             </li>
           </ul>
@@ -76,9 +156,7 @@ export default function HomePage() {
         <h2 id="systems" className="font-serif text-3xl tracking-tight">
           Selected systems
         </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
-          Each README says the limit. These are not customer production systems.
-        </p>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">{offer.proofLine}</p>
         <ol className="mt-8 divide-y divide-line border-y border-line">
           {projects.map((project, index) => (
             <li key={project.name} className="grid gap-4 py-8 md:grid-cols-[7rem_1fr]">
@@ -142,7 +220,8 @@ export default function HomePage() {
               </ul>
             </article>
           ))}
-          <p className="mt-6 text-sm">
+          <p className="mt-6 text-sm leading-6 text-muted">{offer.employmentLine}</p>
+          <p className="mt-3 text-sm">
             <Link className="text-accent" href="/resume/en">
               Printable resume (EN)
             </Link>
@@ -166,8 +245,12 @@ export default function HomePage() {
           ))}
         </ul>
         <p className="mt-8 text-sm text-muted">
-          <a className="text-ink" href={`mailto:${identity.email}`}>
+          <a className="text-ink" href={mailto}>
             {identity.email}
+          </a>
+          <span> · </span>
+          <a className="text-ink" href={call}>
+            {identity.phone}
           </a>
           <span> · </span>
           <a className="text-ink" href={identity.github}>
