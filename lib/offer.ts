@@ -18,11 +18,9 @@ export function whatsappHref(phone: string, text: string): string {
 }
 
 export function offerMailto(email: string): string {
-  const params = new URLSearchParams({
-    subject: offer.emailSubject,
-    body: offer.emailBody,
-  });
-  return `mailto:${email}?${params.toString()}`;
+  const subject = encodeURIComponent(offer.emailSubject);
+  const body = encodeURIComponent(offer.emailBody);
+  return `mailto:${email}?subject=${subject}&body=${body}`;
 }
 
 export function offerDescription(): string {

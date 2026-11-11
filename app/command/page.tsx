@@ -9,13 +9,20 @@ import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
+const privateDescription = "Private notes. This page is not indexed.";
+
 export const metadata: Metadata = {
   title: "Command",
-  description: "Private notes. This page is not indexed.",
+  description: privateDescription,
   robots: { index: false, follow: false },
   openGraph: {
     title: "Command",
-    description: "Private notes. This page is not indexed.",
+    description: privateDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Command",
+    description: privateDescription,
   },
 };
 
