@@ -3,9 +3,16 @@
     "name": "Darwin Cardenas Florez",
     "title": "Backend Software Engineer",
     "titleEs": "Ingeniero de Software Backend",
+    "stackLine": "Python · TypeScript · C#/.NET · PostgreSQL · SQL Server",
+    "tagline": "Backend software engineer in Medellín (UTC-5). Python, TypeScript, C#/.NET. Open to full-time remote roles.",
     "location": "Medellín, Colombia",
+    "timezone": "UTC-5",
     "workMode": "Remote, open to relocation",
     "workModeEs": "Remoto, abierto a reubicación",
+    "availability": "Available now",
+    "availabilityEs": "Disponibilidad inmediata",
+    "openTo": "Open to full-time remote roles, contract work, and fixed-scope projects.",
+    "openToEs": "Abierto a roles remotos de tiempo completo, contratos y proyectos de alcance fijo.",
     "phone": "+57 300 379 4307",
     "email": "darwinflorezcardenas@gmail.com",
     "github": "https://github.com/DARWINFLOREZ10",
@@ -19,25 +26,28 @@
   "skills": [
     "Python",
     "TypeScript",
-    "C#",
+    "C#/.NET",
+    "Swift",
     "FastAPI",
     "Node.js",
+    "React",
     "PostgreSQL",
     "SQL Server",
     "Redis",
-    "Docker"
+    "Docker",
+    "Azure"
   ],
   "skillGroups": [
     {
       "en": "Languages",
       "es": "Lenguajes",
-      "items": ["Python", "TypeScript", "JavaScript", "C#", "SQL"]
+      "items": ["Python", "TypeScript", "JavaScript", "C#", "Swift", "SQL"]
     },
     {
       "en": "Backend",
       "es": "Backend",
-      "items": ["FastAPI", "Node.js", "Fastify", "Express", "REST APIs", "OpenAPI"],
-      "itemsEs": ["FastAPI", "Node.js", "Fastify", "Express", "APIs REST", "OpenAPI"]
+      "items": ["FastAPI", "Node.js", "Fastify", "Express", ".NET", "REST APIs", "OpenAPI"],
+      "itemsEs": ["FastAPI", "Node.js", "Fastify", "Express", ".NET", "APIs REST", "OpenAPI"]
     },
     {
       "en": "Data and asynchronous work",
@@ -45,32 +55,33 @@
       "items": ["PostgreSQL", "SQL Server", "SQLite", "Redis", "Celery", "BullMQ"]
     },
     {
-      "en": "Security and delivery",
-      "es": "Seguridad y entrega",
-      "items": ["JWT", "OAuth2", "RBAC", "Docker", "GitHub Actions", "API and integration testing"],
-      "itemsEs": ["JWT", "OAuth2", "RBAC", "Docker", "GitHub Actions", "pruebas de API e integración"]
+      "en": "Cloud and delivery",
+      "es": "Nube y entrega",
+      "items": ["Microsoft Azure", "Docker", "GitHub Actions", "JWT", "OAuth2", "RBAC", "API and integration testing"],
+      "itemsEs": ["Microsoft Azure", "Docker", "GitHub Actions", "JWT", "OAuth2", "RBAC", "pruebas de API e integración"]
     },
     {
       "en": "Frontend",
       "es": "Frontend",
-      "items": ["Next.js (portfolio)"],
-      "itemsEs": ["Next.js (portafolio)"]
+      "items": ["React", "Next.js", "TypeScript"],
+      "itemsEs": ["React", "Next.js", "TypeScript"]
     }
   ],
   "education": {
     "en": "Systems Engineering degree",
     "es": "Ingeniería de Sistemas",
     "school": "Instituto Tecnológico Metropolitano (ITM)",
-    "dates": "2022–2026"
+    "dates": "Graduated 2026",
+    "datesEs": "Graduado en 2026"
   },
   "languages": {
-    "en": "Spanish: native. English: B2, EASI certificate.",
-    "es": "Español: nativo. Inglés: B2, certificado EASI."
+    "en": "Spanish: native. English: B2 (certified, EASI), working toward C1.",
+    "es": "Español: nativo. Inglés: B2 (certificado EASI), preparando C1."
   },
   "experience": [
     {
-      "role": "Freelance Backend Software Engineer",
-      "roleEs": "Ingeniero de Software Backend Freelance",
+      "role": "Freelance Software Engineer",
+      "roleEs": "Ingeniero de Software Freelance",
       "org": "Independent clients",
       "orgEs": "Clientes independientes",
       "location": "Remote",
@@ -80,16 +91,16 @@
       "end": "Present",
       "endEs": "Actualidad",
       "bullets": [
-        "Delivered custom backend work for paying clients, and defined requirements and scope with them directly.",
+        "Built and launched a website for an occupational health and safety company and set up its Google Ads campaigns. In 2026, Google Analytics shows about 1,100 active users and 160 visitor contacts to the client.",
         "Built REST APIs and relational data models with Node.js, TypeScript, Python, and PostgreSQL, including authentication, authorization, and asynchronous work when the project needed it.",
-        "Owned architecture, development, infrastructure, and deployment for each project. Client identities and project details stay confidential.",
-        "After the CESDE contract ended in February 2026, client work continued. The three public systems below are what I can show from that stretch."
+        "Built websites and web applications for small businesses, found through word of mouth. Scope and requirements are agreed directly with each client, and client details stay confidential.",
+        "My backend work from this stretch is in the three public systems below."
       ],
       "bulletsEs": [
-        "Entregué soluciones backend para clientes que pagan y definí con ellos los requisitos y el alcance.",
-        "Desarrollé APIs REST y modelos relacionales con Node.js, TypeScript, Python y PostgreSQL; incluí autenticación, autorización y trabajo asíncrono cuando el proyecto lo pedía.",
-        "Asumí arquitectura, desarrollo, infraestructura y despliegue en cada proyecto. La identidad de los clientes y el detalle del trabajo se quedan en privado.",
-        "Después de que el contrato en CESDE terminó, en febrero de 2026, el trabajo con clientes siguió. Los tres sistemas públicos de abajo son lo que puedo mostrar de ese tramo."
+        "Construí y lancé el sitio web de una empresa de seguridad y salud en el trabajo y configuré sus campañas de Google Ads. En 2026, Google Analytics muestra unos 1.100 usuarios activos y 160 contactos de visitantes hacia el cliente.",
+        "Desarrollé APIs REST y modelos relacionales con Node.js, TypeScript, Python y PostgreSQL, con autenticación, autorización y trabajo asíncrono cuando el proyecto lo pedía.",
+        "Construí sitios y aplicaciones web para pequeños negocios, conseguidos por recomendación. El alcance y los requisitos se acuerdan directamente con cada cliente, y los detalles son confidenciales.",
+        "Mi trabajo backend de este tramo está en los tres sistemas públicos de abajo."
       ]
     },
     {
@@ -104,15 +115,49 @@
       "end": "Feb 2026",
       "endEs": "febrero 2026",
       "bullets": [
-        "Contributed to institutional systems used by students, faculty, and administrative staff, on a team of seven.",
-        "Developed and adjusted APIs and modules with C#/.NET, and worked with SQL Server tables, migrations, and query optimization.",
+        "Built a new module for the university's website that lets staff check whether a student holds a scholarship. Access is limited to university employees and hidden from students.",
+        "Developed and adjusted APIs and modules with C#/.NET on Microsoft Azure, on a team of seven serving students, faculty, and administrative staff.",
+        "Wrote and optimized SQL Server queries, tables, and migrations, and answered data requests with ad-hoc queries delivered to business teams in Excel.",
         "Helped restore functionality during a migration-related incident and collaborated on the corrective changes."
       ],
       "bulletsEs": [
-        "Contribuí a sistemas institucionales usados por estudiantes, docentes y personal administrativo, en un equipo de siete personas.",
-        "Desarrollé y ajusté APIs y módulos con C#/.NET, y trabajé con tablas, migraciones y optimización de consultas en SQL Server.",
+        "Construí un módulo nuevo para el sitio web de la institución que permite al personal consultar si un estudiante tiene beca. El acceso es solo para empleados de la institución y no lo ven los estudiantes.",
+        "Desarrollé y ajusté APIs y módulos con C#/.NET sobre Microsoft Azure, en un equipo de siete personas que atendía a estudiantes, docentes y personal administrativo.",
+        "Escribí y optimicé consultas, tablas y migraciones en SQL Server, y atendí solicitudes de datos con consultas puntuales que se entregaban a las áreas en Excel.",
         "Ayudé a recuperar funcionalidad durante una incidencia ligada a una migración y colaboré en los ajustes correctivos."
       ]
+    }
+  ],
+  "proof": [
+    {
+      "key": "moneypulse",
+      "name": "MoneyPulse",
+      "kind": "iOS app · Swift · App Store",
+      "kindEs": "App iOS · Swift · App Store",
+      "url": "https://apps.apple.com/app/id6822434910",
+      "urlLabel": "View on the App Store",
+      "inResume": true,
+      "en": {
+        "text": "A personal-finance iPhone app that tracks income and expenses by category and shows where your money goes. It also handles budgets, savings goals, debts, and net worth, and keeps your data on the device. Built entirely in Swift and published on the App Store."
+      },
+      "es": {
+        "text": "Una app de finanzas personales para iPhone que registra ingresos y gastos por categoría y muestra a dónde se va el dinero. También maneja presupuestos, metas de ahorro, deudas y patrimonio, y guarda los datos en el dispositivo. Construida completamente en Swift y publicada en la App Store."
+      }
+    },
+    {
+      "key": "client-site",
+      "name": "Website for an occupational health and safety company",
+      "kind": "Client work · Google Ads",
+      "kindEs": "Trabajo para cliente · Google Ads",
+      "url": "",
+      "urlLabel": "",
+      "inResume": false,
+      "en": {
+        "text": "I built the site and set up its Google Ads campaigns. In 2026, Google Analytics shows about 1,100 active users and 160 visitor contacts to the client."
+      },
+      "es": {
+        "text": "Construí el sitio y configuré sus campañas de Google Ads. En 2026, Google Analytics muestra unos 1.100 usuarios activos y 160 contactos de visitantes hacia el cliente."
+      }
     }
   ],
   "projects": [
@@ -190,7 +235,7 @@
     }
   ],
   "en": {
-    "summary": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven. I am looking for international backend roles, including remote work and relocation, with room to grow in system design and reliability.",
+    "summary": "I build APIs and data-driven services with Python, TypeScript, and C#/.NET. I spent ten months on a seven-person team at CESDE and have freelanced since 2022. I published MoneyPulse, a personal-finance iOS app written entirely in Swift, and built a website for an occupational health and safety company that shows about 1,100 active users and 160 visitor contacts in 2026, per Google Analytics. I am looking for a full-time remote backend role, available immediately, working in UTC-5 with overlap on US business hours.",
     "statement": "I care about the write that happens twice, the update that loses a race, and the job that still has to finish after the response is gone.",
     "focus": [
       "API contracts, authorization, and tenant predicates on the query.",
@@ -206,17 +251,18 @@
       "checklist": [
         "Read the Limits section of the repo before I describe it.",
         "Lead with the failure mode, then the mechanism, then the test that proves it.",
-        "Apply on Wellfound first. LinkedIn is how people find me, not where I run the search.",
+        "Apply to roles that accept Colombia or LatAm. Mix Get on Board, Revelo, Tecla, Arc.dev, and Wellfound, and message an engineer on the team with each application.",
         "Keep the headline at Backend Software Engineer. Do not write Senior.",
-        "Do not add a metric or a production claim I cannot point at. The team size I can name is the seven people at CESDE."
+        "Use only the numbers I can point at: ten months and seven people at CESDE, and the Google Analytics figures for the client site. Add no other metric or production claim."
       ],
-      "wellfoundHeadline": "Backend Software Engineer · APIs, data, async work",
-      "wellfoundAbout": "I build APIs and data-driven services with Python and TypeScript. Since 2022 I have owned the technical definition, implementation, and deployment of freelance work for paying clients. From May 2025 to February 2026 I contributed to institutional systems at CESDE on a team of seven, with C#/.NET and SQL Server. Client work continued after that contract. The three public systems are what I can show from that stretch. I am looking for international backend roles, including remote work and relocation.\n\nI want the work judged from three public systems:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nSystems Engineering degree, Instituto Tecnológico Metropolitano (ITM), 2022–2026. Spanish: native. English: B2, EASI certificate.",
-      "linkedinHeadline": "Backend Software Engineer · Python, TypeScript, APIs",
-      "linkedinAbout": "I build APIs and data-driven services with Python and TypeScript. Freelance backend work for paying clients since 2022. Contract at CESDE, May 2025 to February 2026, on a team of seven. Client work continued after that contract, and the three public systems are what I can show from that stretch. I am open to international roles, remote or relocation.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Systems Engineering degree, ITM, 2022–2026. English: B2, EASI certificate. I apply primarily on Wellfound.",
+      "wellfoundHeadline": "Backend Software Engineer · Python, TypeScript, C#/.NET",
+      "wellfoundAbout": "I build APIs and data-driven services with Python, TypeScript, and C#/.NET. I spent ten months on a seven-person team at CESDE (May 2025 to February 2026), where I built a staff-only module for scholarship lookups and worked with SQL Server on Azure. I have freelanced since 2022, including a website for an occupational health and safety company that shows about 1,100 active users and 160 visitor contacts in 2026, and I published MoneyPulse, a personal-finance iOS app written entirely in Swift, on the App Store.\n\nThree public backend systems show how I work:\n\nAlertfold — signed incident intake, tenant isolation, optimistic concurrency, and a transactional outbox with dead-letter requeue.\nReleasePilot — deterministic flag rollouts, an emergency off switch, and an audit row in the same transaction as the change.\nHandoff — a workflow run and its job commit together; a worker performs one idempotent HTTP step. Membership is required on every tenant route.\n\nThese are portfolio systems with tests and written limits. They are not production customer platforms.\n\nSystems Engineering, Instituto Tecnológico Metropolitano (ITM), graduated 2026. Spanish: native. English: B2 (certified), working toward C1. Based in Medellín (UTC-5), looking for a full-time remote backend role, available immediately.",
+      "linkedinHeadline": "Backend Software Engineer · Python, TypeScript, C#/.NET · Remote",
+      "linkedinAbout": "I build APIs and data-driven services with Python, TypeScript, and C#/.NET. Ten months on a seven-person team at CESDE (May 2025 to February 2026), freelance work since 2022, and MoneyPulse, my own personal-finance iOS app, published on the App Store.\n\nSelected public systems: Alertfold, ReleasePilot, and Handoff on GitHub (DARWINFLOREZ10). Portfolio: https://darwin-cardenas.vercel.app. Systems Engineering, ITM, graduated 2026. English: B2 (certified). I am looking for a full-time remote backend role, available immediately.",
       "doNotSay": [
         "Senior in the headline or in the years-of-experience line.",
         "A latency, uptime, or revenue number.",
+        "A MoneyPulse download or user count.",
         "A team size other than the seven people at CESDE.",
         "That Alertfold, ReleasePilot, or Handoff have production users.",
         "A client or employer I have not already named. The named record is freelance client work since 2022 and the CESDE contract.",
@@ -225,7 +271,7 @@
     }
   },
   "es": {
-    "summary": "Desarrollo APIs y servicios basados en datos con Python y TypeScript. Desde 2022 asumo la definición técnica, la implementación y el despliegue del trabajo freelance para clientes que pagan. De mayo de 2025 a febrero de 2026 contribuí a sistemas institucionales en CESDE, en un equipo de siete personas. Busco roles backend internacionales, remotos o con reubicación, con espacio para seguir creciendo en diseño de sistemas y confiabilidad.",
+    "summary": "Desarrollo APIs y servicios basados en datos con Python, TypeScript y C#/.NET. Pasé diez meses en un equipo de siete personas en CESDE y trabajo como freelance desde 2022. Publiqué MoneyPulse, una app de finanzas personales para iOS escrita completamente en Swift, y construí el sitio web de una empresa de seguridad y salud en el trabajo que en 2026 muestra unos 1.100 usuarios activos y 160 contactos de visitantes, según Google Analytics. Busco un rol backend remoto de tiempo completo, con disponibilidad inmediata, en horario UTC-5 con solape con la jornada de EE.UU.",
     "focus": [
       "Contratos de API, autorización y predicados de tenant en la consulta.",
       "Una transacción para el estado y el trabajo que tiene que seguirlo.",
