@@ -8,7 +8,8 @@ The page, both resumes, and Command read [`data/cv-master.json`](data/cv-master.
 
 ## Routes
 
-- `/` — the portfolio. One priced engagement, then the three systems as proof. The price and scope live in [`data/offer.json`](data/offer.json). GitHub links only. I do not link an empty live demo.
+- `/` — the portfolio. It opens with my role and summary, then what I have shipped (MoneyPulse and a client site), my record, and the three systems as proof. The fixed-scope offers come last under "Work with me"; their price and scope live in [`data/offer.json`](data/offer.json). GitHub links only. I do not link an empty live demo.
+- To show the MoneyPulse link, set `url` on the `moneypulse` item in `proof` in [`data/cv-master.json`](data/cv-master.json).
 - `/resume/en` and `/resume/es` — the resumes I print from the browser dialog.
 - `/command` — my private page for the Wellfound and LinkedIn text. The password is `CAREER_KIT_PASSWORD` in the environment. It is not in this repository.
 

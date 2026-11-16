@@ -52,6 +52,9 @@ type JsonLdIdentity = {
   email: string;
   phone: string;
   portfolioUrl: string;
+  github: string;
+  linkedin: string;
+  tagline: string;
 };
 
 export function offerJsonLd(identity: JsonLdIdentity) {
@@ -59,7 +62,9 @@ export function offerJsonLd(identity: JsonLdIdentity) {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: identity.name,
+    description: identity.tagline,
     url: identity.portfolioUrl,
+    sameAs: [identity.github, identity.linkedin].filter(Boolean),
     email: identity.email,
     telephone: identity.phone.replace(/\s/g, ""),
     address: {
@@ -68,12 +73,21 @@ export function offerJsonLd(identity: JsonLdIdentity) {
       addressCountry: "CO",
     },
     areaServed: "Worldwide",
-    makesOffer: {
-      "@type": "Offer",
-      name: offer.title,
-      price: String(offer.priceUsd),
-      priceCurrency: "USD",
-      description: `${formatOfferPrice()}. ${offer.priceScope}`,
-    },
+    makesOffer: [
+      {
+        "@type": "Offer",
+        name: offer.entry.title,
+        price: String(offer.entry.priceUsd),
+        priceCurrency: "USD",
+        description: offer.entry.summary,
+      },
+      {
+        "@type": "Offer",
+        name: offer.title,
+        price: String(offer.priceUsd),
+        priceCurrency: "USD",
+        description: `${formatOfferPrice()}. ${offer.priceScope}`,
+      },
+    ],
   };
 }

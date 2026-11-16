@@ -1,6 +1,6 @@
 {
   "title": "Move one step off the request",
-  "eyebrow": "One engagement",
+  "eyebrow": "Fixed scope",
   "priceUsd": 2500,
   "pricePrefix": "Starts at",
   "priceScope": "That price is one flow, as written above. If the failure is larger, the scope email names the number before any work starts.",
@@ -19,10 +19,21 @@
     "Production access before the scope is written.",
     "A retainer."
   ],
+  "entry": {
+    "title": "Reliability review",
+    "priceUsd": 600,
+    "timeframe": "Two to three days",
+    "summary": "I review one flow of your backend for lost or duplicated work and send a written report: what fails, why, and the fixes in priority order.",
+    "includes": [
+      "The failure, written: what is lost and when.",
+      "The fixes, ranked by risk and effort.",
+      "A note of what I did not look at."
+    ]
+  },
   "cta": "Email the failure",
   "emailSubject": "Move one step off the request",
   "emailBody": "The step that fails:\n\nWhat is lost when it fails:\n\nWhat should still be true after the change:\n",
   "whatsappText": "Hola Darwin. El paso que se pierde es: ",
-  "employmentLine": "I am also open to an international backend role.",
-  "proofLine": "These three are the proof for that offer. Each README says the limit. They are not customer production systems."
+  "employmentLine": "I am looking for a full-time remote backend role and am available now.",
+  "proofLine": "These three systems show how I work on the backend. Each README says the limit. They are not customer production systems."
 }

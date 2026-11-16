@@ -48,6 +48,14 @@ body {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
+/* Ligatures such as "fi" and "fl" can break the text layer of a saved PDF, so
+   the email and keywords come out garbled in recruiter systems. Keep them off. */
+.resume-page,
+.resume-page * {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0;
+}
+
 .resume-page a {
   color: inherit;
   text-decoration: underline;

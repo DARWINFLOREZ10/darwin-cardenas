@@ -78,7 +78,7 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const copy = labels[locale];
-  const { identity, experience, projects, skillGroups, education, languages } = cv;
+  const { identity, experience, projects, proof, skillGroups, education, languages } = cv;
   const localized = cv[locale];
   const es = locale === "es";
   const end = (job: (typeof experience)[number]) => (es ? job.endEs : job.end);
@@ -100,7 +100,9 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
           <h1 className="font-serif text-[1.6rem] leading-tight tracking-tight">{identity.name}</h1>
           <p className="mt-1 text-base">{es ? identity.titleEs : identity.title}</p>
           <p className="mt-2 flex flex-wrap items-baseline gap-x-1.5 gap-y-1 text-[0.8rem] leading-5">
-            <span>{identity.location}</span>
+            <span>
+              {identity.location} ({identity.timezone})
+            </span>
             <span aria-hidden="true">·</span>
             <span>{es ? identity.workModeEs : identity.workMode}</span>
             <span aria-hidden="true">·</span>
@@ -167,6 +169,19 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
           <h2 className="border-b border-black/15 pb-1 text-[0.7rem] font-medium tracking-[0.14em] uppercase">
             {copy.systems}
           </h2>
+          {proof
+            .filter((item) => item.inResume)
+            .map((item) => (
+              <div key={item.key} className="resume-block mt-3">
+                <p className="text-[0.84rem] font-medium">
+                  {item.name}
+                  <span className="font-normal"> · {es ? item.kindEs : item.kind}</span>
+                </p>
+                <ul className="mt-1 list-disc space-y-0.5 pl-4 text-[0.84rem] leading-5">
+                  <li>{item[locale].text}</li>
+                </ul>
+              </div>
+            ))}
           {projects.map((project) => {
             const text = project[locale];
             return (
@@ -209,7 +224,7 @@ export default async function ResumePage({ params }: { params: Promise<Params> }
               {" · "}
               {education.school}
             </span>
-            <span className="shrink-0">{education.dates}</span>
+            <span className="shrink-0">{es ? education.datesEs : education.dates}</span>
           </p>
         </section>
 
